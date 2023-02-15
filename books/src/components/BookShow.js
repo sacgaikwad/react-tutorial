@@ -1,21 +1,21 @@
 import BookEdit from "./BookEdit";
 import { useState } from "react";
 
-function BookShow({ book, onBookDelete }) {
+function BookShow({ book, onBookDelete, onBookEdit }) {
   const [showEdit, setShowEdit] = useState(false);
 
   const handleDeleteBook = () => {
     onBookDelete(book.id);
   };
 
-  const handleEditBook = () => {
+  const editBook = () => {
     setShowEdit(!showEdit);
   };
 
   let content = <h3>{book.title}</h3>;
 
   if (showEdit) {
-    content = <BookEdit book={book} />;
+    content = <BookEdit book={book} onBookEdit={onBookEdit} />;
   }
 
   return (
@@ -23,7 +23,7 @@ function BookShow({ book, onBookDelete }) {
       <div>{content}</div>
       <div className="actions">
         <button className="delete" onClick={handleDeleteBook}></button>
-        <button className="edit" onClick={handleEditBook}></button>
+        <button className="edit" onClick={editBook}></button>
       </div>
     </div>
   );

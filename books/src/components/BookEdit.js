@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-function BookEdit({ book }) {
+function BookEdit({ book, onBookEdit }) {
   const [title, setTitle] = useState(book.title);
 
-  const handleEditBook = (event) => {
+  const submitEditBook = (event) => {
     event.preventDefault();
-    console.log("handleEditBook");
+    onBookEdit(book.id, title);
   };
 
   const onInputChange = (event) => {
@@ -14,7 +14,7 @@ function BookEdit({ book }) {
 
   return (
     <div>
-      <form className="book-edit" onSubmit={handleEditBook}>
+      <form className="book-edit" onSubmit={submitEditBook}>
         <label>Title</label>
         <input className="input" value={title} onChange={onInputChange}></input>
         <button className="button is-primary">Save</button>
