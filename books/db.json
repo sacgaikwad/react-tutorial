@@ -1,12 +1,8 @@
 {
   "books": [
     {
-      "title": "harry potter part -1&2&3&4",
+      "title": "harry potter",
       "id": 1
-    },
-    {
-      "title": "sample",
-      "id": 2
     },
     {
       "title": "Avengers",
