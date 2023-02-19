@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import BooksContext from "../context/books";
 
 function BookEdit({ book, onSubmit }) {
   const [title, setTitle] = useState(book.title);
+
+  //const { count, incrementCount } = useContext(BooksContext);
 
   const submitEditBook = (event) => {
     event.preventDefault();
@@ -15,6 +18,7 @@ function BookEdit({ book, onSubmit }) {
   return (
     <div>
       <form className="book-edit" onSubmit={submitEditBook}>
+        {/* {count} */}
         <label>Title</label>
         <input className="input" value={title} onChange={onInputChange}></input>
         <button className="button is-primary">Save</button>
