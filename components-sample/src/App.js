@@ -1,38 +1,27 @@
-import Button from "./Button";
-import { GoBell, GoAlert } from "react-icons/go";
+import Accordion from "./components/Accordion";
 
 function App() {
-  const handleClick = () => {
-    console.log("clicked");
-  };
-  return (
-    <div>
-      app
-      <div>
-        <Button primary rounded className="mb-5" onClick={handleClick} >
-          <GoBell />
-          primary!
-        </Button>
-      </div>
-      <div>
-        <Button secondary>secondary!</Button>
-      </div>
-      <div>
-        <Button danger>
-          <GoAlert />
-          danger!
-        </Button>
-      </div>
-      <div>
-        <Button warning>warning</Button>
-      </div>
-      <div>
-        <Button success rounded>
-          success
-        </Button>
-      </div>
-    </div>
-  );
+
+
+  const items = [
+    {
+      id:'react',
+      label:'can I use react on a project',
+      content:'You can use rect on any project'
+    },
+    {
+      id:'javascript',
+      label:'can I use Javascript',
+      content:'You can use javascript on any project'
+    },
+    {
+      id:'css',
+      label:'can I use css on a project',
+      content:'You can use css on any project'
+    }
+  ]
+
+  return  <Accordion items={items}/>
 }
 
 export default App;
