@@ -1,14 +1,18 @@
 import { useState } from "react";
 
-function Dropdown({ options,handleOptionSelected }) {
+function Dropdown({ options, handleOptionSelected, optionSelected }) {
   const [isOpen, setIsOpen] = useState(false);
 
+  console.log(
+    "Selected option  " + optionSelected?.value + optionSelected?.label
+  );
+
   const handleClick = () => {
+    console.log(isOpen);
     setIsOpen(!isOpen);
   };
 
   const handleOptionClick = (option) => {
-    console.log("option selected   : " + option.value);
     setIsOpen(false);
     handleOptionSelected(option);
   };
@@ -23,7 +27,7 @@ function Dropdown({ options,handleOptionSelected }) {
 
   return (
     <div>
-      <div onClick={handleClick}>---Select---</div>
+      <div onClick={handleClick}>{optionSelected?.label || "---select---"}</div>
       {isOpen && <div>{renderedOptions}</div>}
     </div>
   );

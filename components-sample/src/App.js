@@ -17,16 +17,19 @@ function App() {
     },
   ];
 
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState(null);
 
   const optionSelected = (option) => {
     setSelectedOption(option);
-    console.log("App component: " + selectedOption.value);
   };
 
   return (
     <div>
-      <Dropdown options={options} handleOptionSelected={optionSelected} />
+      <Dropdown
+        options={options}
+        handleOptionSelected={optionSelected}
+        optionSelected={selectedOption}
+      />
     </div>
   );
 }
